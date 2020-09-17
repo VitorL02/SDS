@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.vitorapp.dspesquisa.entities.enums.Plataform;
 
 
@@ -28,14 +29,11 @@ private Long id;
 private String title;
 private Plataform platform;
 
-
 @ManyToOne
 @JoinColumn(name = "genre_id")
 private Genre genre;
 
-
 @OneToMany (mappedBy = "game")
-
 private List  <Record> records = new ArrayList<Record>();
 
 public Game() {
